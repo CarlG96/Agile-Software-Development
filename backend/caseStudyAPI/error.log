@@ -1,0 +1,978 @@
+
+2026-05-08T11:58:13.424Z
+Context: HTTP Non-Success Response
+[object Object]
+
+2026-05-08T12:03:58.152Z
+Context: HTTP Non-Success Response
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 401,
+  "durationMs": 119,
+  "response": "Invalid credentials",
+  "requestBody": {
+    "email": "admin@example.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-08T12:05:13.104Z
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 401,
+  "durationMs": 65,
+  "response": "Invalid credentials",
+  "requestBody": {
+    "email": "admin@example.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:39.794Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 8,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:43.041Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:46.375Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 3,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:46.533Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:46.677Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.116Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 0,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.283Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 0,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.443Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.580Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.720Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:47.874Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:48.258Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:01:49.571Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:05:03.700Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-11T10:05:18.979Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 401,
+  "durationMs": 0,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-14T08:41:00.857Z
+{
+  "method": "PATCH",
+  "url": "/api/staff/me/leave-requests/11/cancel",
+  "statusCode": 500,
+  "durationMs": 9,
+  "response": {
+    "error": "Request is already cancelled"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "11"
+  },
+  "query": {}
+}
+
+2026-05-14T08:41:00.859Z
+{
+  "method": "PATCH",
+  "url": "/api/staff/me/leave-requests/11/cancel",
+  "statusCode": 500,
+  "durationMs": 12,
+  "response": "{\"error\":\"Request is already cancelled\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "11"
+  },
+  "query": {}
+}
+
+2026-05-21T08:10:30.277Z
+{
+  "method": "PATCH",
+  "url": "/api/staff/me/leave-requests/13/cancel",
+  "statusCode": 500,
+  "durationMs": 8,
+  "response": {
+    "error": "Request is already cancelled"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "13"
+  },
+  "query": {}
+}
+
+2026-05-21T08:10:30.277Z
+{
+  "method": "PATCH",
+  "url": "/api/staff/me/leave-requests/13/cancel",
+  "statusCode": 500,
+  "durationMs": 8,
+  "response": "{\"error\":\"Request is already cancelled\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "13"
+  },
+  "query": {}
+}
+
+2026-05-21T08:16:39.172Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/14/approve",
+  "statusCode": 404,
+  "durationMs": 7,
+  "response": {
+    "error": "Leave request not found or not under your management"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "14"
+  },
+  "query": {}
+}
+
+2026-05-21T08:16:39.172Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/14/approve",
+  "statusCode": 404,
+  "durationMs": 8,
+  "response": "{\"error\":\"Leave request not found or not under your management\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "14"
+  },
+  "query": {}
+}
+
+2026-05-21T08:17:04.064Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/approve",
+  "statusCode": 404,
+  "durationMs": 6,
+  "response": {
+    "error": "Leave request not found or not under your management"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:17:04.064Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/approve",
+  "statusCode": 404,
+  "durationMs": 6,
+  "response": "{\"error\":\"Leave request not found or not under your management\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:19:53.175Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 404,
+  "durationMs": 3,
+  "response": "{\"error\":\"Leave request not found or not under your management\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:19:53.175Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 404,
+  "durationMs": 3,
+  "response": {
+    "error": "Leave request not found or not under your management"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:20:32.226Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/approve",
+  "statusCode": 404,
+  "durationMs": 3,
+  "response": {
+    "error": "Leave request not found or not under your management"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:20:32.226Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/approve",
+  "statusCode": 404,
+  "durationMs": 3,
+  "response": "{\"error\":\"Leave request not found or not under your management\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:22:05.190Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 500,
+  "durationMs": 6,
+  "response": {
+    "error": "Cannot reject an already approved request"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:22:05.191Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 500,
+  "durationMs": 7,
+  "response": "{\"error\":\"Cannot reject an already approved request\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:22:07.276Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 500,
+  "durationMs": 5,
+  "response": "{\"error\":\"Cannot reject an already approved request\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:22:07.276Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/18/reject",
+  "statusCode": 500,
+  "durationMs": 5,
+  "response": {
+    "error": "Cannot reject an already approved request"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "18"
+  },
+  "query": {}
+}
+
+2026-05-21T08:24:18.069Z
+{
+  "method": "PATCH",
+  "url": "/api/admin/leave-requests/6/approve",
+  "statusCode": 500,
+  "durationMs": 4,
+  "response": {
+    "error": "Cannot approve an already approved request"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "6"
+  },
+  "query": {}
+}
+
+2026-05-21T08:24:18.069Z
+{
+  "method": "PATCH",
+  "url": "/api/admin/leave-requests/6/approve",
+  "statusCode": 500,
+  "durationMs": 4,
+  "response": "{\"error\":\"Cannot approve an already approved request\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "6"
+  },
+  "query": {}
+}
+
+2026-05-21T08:24:41.423Z
+{
+  "method": "PATCH",
+  "url": "/api/admin/staff/9/leave-allocation",
+  "statusCode": 404,
+  "durationMs": 2,
+  "response": {
+    "error": "Staff member not found"
+  },
+  "requestBody": {
+    "leaveTypeName": "Annual Leave",
+    "remaining": 75
+  },
+  "params": {
+    "staffId": "9"
+  },
+  "query": {}
+}
+
+2026-05-21T08:24:41.423Z
+{
+  "method": "PATCH",
+  "url": "/api/admin/staff/9/leave-allocation",
+  "statusCode": 404,
+  "durationMs": 2,
+  "response": "{\"error\":\"Staff member not found\"}",
+  "requestBody": {
+    "leaveTypeName": "Annual Leave",
+    "remaining": 75
+  },
+  "params": {
+    "staffId": "9"
+  },
+  "query": {}
+}
+
+2026-05-21T14:16:28.067Z
+{
+  "method": "POST",
+  "url": "/api/staff/me/leave-requests",
+  "statusCode": 401,
+  "durationMs": 1,
+  "response": "Invalid token",
+  "requestBody": {
+    "leaveTypeId": 1,
+    "startDate": "2026-10-10",
+    "endDate": "2026-10-12"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-21T14:16:59.840Z
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 401,
+  "durationMs": 82,
+  "response": "Invalid credentials",
+  "requestBody": {
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-21T14:17:35.698Z
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-21T14:17:35.952Z
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T08:18:51.162Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 401,
+  "durationMs": 0,
+  "response": "Invalid token",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:22:49.677Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/24/reject",
+  "statusCode": 500,
+  "durationMs": 5,
+  "response": {
+    "error": "Request is already rejected"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "24"
+  },
+  "query": {}
+}
+
+2026-05-22T09:22:49.678Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/24/reject",
+  "statusCode": 500,
+  "durationMs": 6,
+  "response": "{\"error\":\"Request is already rejected\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "24"
+  },
+  "query": {}
+}
+
+2026-05-22T09:22:56.791Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/23/approve",
+  "statusCode": 500,
+  "durationMs": 5,
+  "response": {
+    "error": "Cannot approve an already approved request"
+  },
+  "requestBody": {},
+  "params": {
+    "requestId": "23"
+  },
+  "query": {}
+}
+
+2026-05-22T09:22:56.791Z
+{
+  "method": "PATCH",
+  "url": "/api/manager/leave-requests/23/approve",
+  "statusCode": 500,
+  "durationMs": 5,
+  "response": "{\"error\":\"Cannot approve an already approved request\"}",
+  "requestBody": {},
+  "params": {
+    "requestId": "23"
+  },
+  "query": {}
+}
+
+2026-05-22T09:27:43.010Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 3,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:43.179Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 3,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:43.320Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:43.489Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:43.632Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 3,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:43.877Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.097Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.262Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.412Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 2,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.590Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 409,
+  "durationMs": 3,
+  "response": "A user with that email already exists",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.736Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:44.896Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.049Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.218Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.373Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.523Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.672Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-05-22T09:27:45.831Z
+{
+  "method": "POST",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "firstName": "Alice",
+    "lastName": "Manager",
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]",
+    "roleId": 1
+  },
+  "params": {},
+  "query": {}
+}

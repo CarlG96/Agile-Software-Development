@@ -1,0 +1,16 @@
+{
+  "name": "agile-software-development",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend/caseStudyAPI"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names backend,frontend --prefix-colors blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=backend/caseStudyAPI",
+    "dev:frontend": "npm run dev --workspace=frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
