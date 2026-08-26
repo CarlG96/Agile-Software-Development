@@ -13,7 +13,7 @@ The three roles are:
 
 For auth, the provider pattern should be used. On a page hard refresh or on the expiry of a JWT the user should be redirected to the login page.
 
-Errors are returned as JSON from the API.
+Errors are returned as JSON or text from the API, depending on endpoint.
 
 ## API Endpoints
 
