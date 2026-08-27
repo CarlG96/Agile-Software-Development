@@ -172,7 +172,8 @@ h1 {
 
 .leave-balance-panel,
 .leave-request-panel,
-.leave-requests-panel {
+.leave-requests-panel,
+.outstanding-requests-panel {
   width: 100%;
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -181,7 +182,8 @@ h1 {
 
 .leave-balance-panel h2,
 .leave-request-panel h2,
-.leave-requests-panel h2 {
+.leave-requests-panel h2,
+.outstanding-requests-panel h2 {
   margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 1.25rem;
@@ -274,6 +276,108 @@ h1 {
 .leave-request-button:focus-visible {
   outline: 4px solid var(--colour-focus);
   outline-offset: 2px;
+}
+
+.manager-request-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  padding: 0.875rem;
+  border: 2px solid var(--colour-text);
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.manager-request-item span:first-child {
+  font-weight: 700;
+}
+
+.manager-request-item span:last-child {
+  grid-column: 1;
+}
+
+.manager-request-item span:nth-last-child(2) {
+  grid-column: 1 / -1;
+  font-weight: 700;
+}
+
+.approve-request-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-primary-action);
+  border-radius: 4px;
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.approve-request-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.approve-request-button:disabled {
+  border-color: var(--colour-text);
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  cursor: not-allowed;
+}
+
+.manager-request-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.reject-request-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-error);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-error);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.approve-request-button:focus-visible,
+.reject-request-button:focus-visible,
+.keep-pending-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.manager-decision-confirmation {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  border: 2px solid var(--colour-text);
+  background: var(--colour-page-background);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.manager-decision-confirmation p {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+.manager-decision-confirmation .approve-request-button,
+.manager-decision-confirmation .reject-request-button {
+  margin-right: 0.75rem;
+}
+
+.keep-pending-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .leave-request-dialog {
