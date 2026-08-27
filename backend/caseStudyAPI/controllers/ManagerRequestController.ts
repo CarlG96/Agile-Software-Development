@@ -84,6 +84,7 @@ export class ManagerRequestController {
         ({ user, ...leaveRequestWithoutUser }) => ({
           ...leaveRequestWithoutUser,
           user: {
+            id: user?.id,
             firstName: user?.firstName,
             lastName: user?.lastName,
           },
