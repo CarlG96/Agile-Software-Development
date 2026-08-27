@@ -40,6 +40,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const decoded = decodeJwt(newToken);
       const authenticatedUser: AuthUser = {
         userId: decoded.userId,
+        firstName: decoded.firstName,
+        lastName: decoded.lastName,
         role: decoded.role,
         managerId: decoded.managerId,
       };

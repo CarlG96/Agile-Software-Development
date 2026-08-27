@@ -58,6 +58,21 @@ The React frontend for the Leave Booking System must conform to WCAG Level AA.
 
 This will include:
 
+## High-Contrast Colour Scheme
+
+Use this colour scheme for frontend user interfaces. Do not use colour as the sole way to communicate information.
+
+| Purpose | Colour | Hex value |
+|---------|--------|-----------|
+| Page background | Pale blue | `#E7F0F5` |
+| Surface background | White | `#FFFFFF` |
+| Primary text | Dark slate | `#17222B` |
+| Inverse text | White | `#FFFFFF` |
+| Primary action | Dark blue | `#003D99` |
+| Keyboard focus | Yellow | `#FFDD00` |
+| Error text and border | Dark red | `#8B0000` |
+| Error background | Pale yellow | `#FFF4B8` |
+
 ## Level A Guidelines
 
 | Guideline | Description |
