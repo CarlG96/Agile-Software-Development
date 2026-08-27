@@ -4,11 +4,15 @@ import { ApiError, getMyLeaveBalance, type LeaveBalance } from "./api";
 interface LeaveBalancePanelProps {
   token: string;
   onUnauthorised: () => void;
+  onBalancesLoaded: (balances: LeaveBalance[]) => void;
+  refreshKey: number;
 }
 
 export function LeaveBalancePanel({
   token,
   onUnauthorised,
+  onBalancesLoaded,
+  refreshKey,
 }: LeaveBalancePanelProps) {
   const [balances, setBalances] = useState<LeaveBalance[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -21,6 +25,7 @@ export function LeaveBalancePanel({
         const response = await getMyLeaveBalance(token);
         if (!controller.signal.aborted) {
           setBalances(response);
+          onBalancesLoaded(response);
         }
       } catch (requestError) {
         if (controller.signal.aborted) {
@@ -42,7 +47,7 @@ export function LeaveBalancePanel({
 
     void loadBalances();
     return () => controller.abort();
-  }, [onUnauthorised, token]);
+  }, [onBalancesLoaded, onUnauthorised, refreshKey, token]);
 
   return (
     <section className="leave-balance-panel" aria-labelledby="leave-balance-title">
