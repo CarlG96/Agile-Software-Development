@@ -38,6 +38,8 @@ export class AuthController {
     const token = jwt.sign(
       {
         userId: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         role: user.role.name,
         managerId: user.manager?.id || null,
       },

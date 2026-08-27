@@ -2,6 +2,8 @@ import type { Role } from "./types";
 
 interface DecodedToken {
   userId: number;
+  firstName: string;
+  lastName: string;
   role: Role;
   managerId?: number | null;
   exp: number;

@@ -7,6 +7,9 @@ import { server } from "../../test/server";
 import { createTestToken } from "../../test/createTestToken";
 import { AuthProvider } from "./AuthContext";
 import { LoginPage } from "./LoginPage";
+import { StaffHomePage } from "../staff/StaffHomePage";
+import { ManagerHomePage } from "../manager/ManagerHomePage";
+import { AdminHomePage } from "../admin/AdminHomePage";
 import type { Role } from "./types";
 
 function renderLoginPage() {
@@ -15,9 +18,9 @@ function renderLoginPage() {
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/staff" element={<div>Staff home</div>} />
-          <Route path="/manager" element={<div>Manager home</div>} />
-          <Route path="/admin" element={<div>Admin home</div>} />
+          <Route path="/staff" element={<StaffHomePage />} />
+          <Route path="/manager" element={<ManagerHomePage />} />
+          <Route path="/admin" element={<AdminHomePage />} />
         </Routes>
       </AuthProvider>
     </MemoryRouter>,
@@ -48,12 +51,15 @@ describe("LoginPage", () => {
     );
   });
 
-  it.each<[Role, string]>([
-    ["staff", "Staff home"],
-    ["manager", "Manager home"],
-    ["admin", "Admin home"],
-  ])("redirects a %s user to their home page", async (role, expectedText) => {
-    const token = createTestToken({ userId: 1, role });
+  it.each<Role>(["staff", "manager", "admin"])(
+    "redirects a %s user to their home page and displays their name",
+    async (role) => {
+    const token = createTestToken({
+      userId: 1,
+      firstName: "Jane",
+      lastName: "Doe",
+      role,
+    });
 
     server.use(
       http.post("/api/auth/login", () => HttpResponse.json({ token })),
@@ -63,6 +69,27 @@ describe("LoginPage", () => {
 
     await submitCredentials(`${role}@example.com`, "correct-password");
 
-    expect(await screen.findByText(expectedText)).toBeInTheDocument();
+      expect(await screen.findByRole("heading", { name: "Jane Doe" })).toBeInTheDocument();
+    },
+  );
+
+  it("clears the session and returns the user to login when they log out", async () => {
+    const token = createTestToken({
+      userId: 1,
+      firstName: "Jane",
+      lastName: "Doe",
+      role: "staff",
+    });
+    const user = userEvent.setup();
+
+    server.use(
+      http.post("/api/auth/login", () => HttpResponse.json({ token })),
+    );
+
+    renderLoginPage();
+    await submitCredentials("staff@example.com", "correct-password");
+    await user.click(await screen.findByRole("button", { name: /log out/i }));
+
+    expect(await screen.findByRole("heading", { name: /sign in/i })).toBeInTheDocument();
   });
 });
