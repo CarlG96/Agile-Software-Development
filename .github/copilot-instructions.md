@@ -70,6 +70,8 @@ Use this colour scheme for frontend user interfaces. Do not use colour as the so
 | Inverse text | White | `#FFFFFF` |
 | Primary action | Dark blue | `#003D99` |
 | Keyboard focus | Yellow | `#FFDD00` |
+| Success text and border | Dark green | `#006400` |
+| Success background | Pale green | `#E5F5E5` |
 | Error text and border | Dark red | `#8B0000` |
 | Error background | Pale yellow | `#FFF4B8` |
 

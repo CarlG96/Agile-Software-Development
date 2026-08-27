@@ -65,13 +65,58 @@ export class StaffRequestController {
         res.status(StatusCodes.UNAUTHORIZED).json({ error: "User not found" });
         return;
       }
-      const leaveType = await leaveTypeRepo.findById(leaveTypeId);
+      const parsedLeaveTypeId = Number(leaveTypeId);
+      const requestStartDate = parseDate(startDate);
+      const requestEndDate = parseDate(endDate);
+
+      if (!Number.isInteger(parsedLeaveTypeId) || !requestStartDate || !requestEndDate) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+          error: "A valid leave type, start date, and end date are required",
+        });
+        return;
+      }
+
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      if (requestStartDate < today) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+          error: "Leave requests cannot start before today",
+        });
+        return;
+      }
+
+      if (requestEndDate < requestStartDate) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+          error: "The end date cannot be before the start date",
+        });
+        return;
+      }
+
+      const leaveType = await leaveTypeRepo.findById(parsedLeaveTypeId);
       if (!leaveType) {
         res
           .status(StatusCodes.BAD_REQUEST)
           .json({ error: "Invalid leave type" });
         return;
       }
+
+      const daysRequested =
+        Math.round(
+          (requestEndDate.getTime() - requestStartDate.getTime()) /
+            (1000 * 60 * 60 * 24),
+        ) + 1;
+      const leaveBalance =
+        await this.leaveBalanceRepositoryFactory
+          .createLeaveBalanceRepository()
+          .findByUserAndLeaveType(user, leaveType);
+
+      if (!leaveBalance || leaveBalance.remaining < daysRequested) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+          error: `Insufficient ${leaveType.typeName} leave balance for this request`,
+        });
+        return;
+      }
+
       const pendingStatus = await statusRepo.findByStatus("Pending");
       if (!pendingStatus) {
         res
@@ -83,8 +128,8 @@ export class StaffRequestController {
         user,
         leaveType,
         status: pendingStatus,
-        startDate: new Date(startDate),
-        endDate: new Date(endDate),
+        startDate: requestStartDate,
+        endDate: requestEndDate,
       });
       await leaveRequestRepo.save(leaveRequest);
 
@@ -227,4 +272,15 @@ export class StaffRequestController {
         .json({ error: error.message });
     }
   };
+}
+
+function parseDate(value: unknown): Date | null {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return null;
+  }
+
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== value
+    ? null
+    : date;
 }

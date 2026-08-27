@@ -21,7 +21,12 @@ describe("LeaveBalancePanel", () => {
     );
 
     render(
-      <LeaveBalancePanel token="test-token" onUnauthorised={() => undefined} />,
+      <LeaveBalancePanel
+        token="test-token"
+        onUnauthorised={() => undefined}
+        onBalancesLoaded={() => undefined}
+        refreshKey={0}
+      />,
     );
 
     expect(screen.getByRole("status")).toHaveTextContent(/loading leave balance/i);
@@ -38,7 +43,12 @@ describe("LeaveBalancePanel", () => {
     );
 
     render(
-      <LeaveBalancePanel token="test-token" onUnauthorised={() => undefined} />,
+      <LeaveBalancePanel
+        token="test-token"
+        onUnauthorised={() => undefined}
+        onBalancesLoaded={() => undefined}
+        refreshKey={0}
+      />,
     );
 
     expect(await screen.findByRole("alert")).toHaveTextContent(

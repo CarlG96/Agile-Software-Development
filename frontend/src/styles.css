@@ -5,6 +5,8 @@
   --colour-inverse-text: #ffffff;
   --colour-primary-action: #003d99;
   --colour-focus: #ffdd00;
+  --colour-success: #006400;
+  --colour-success-background: #e5f5e5;
   --colour-error: #8b0000;
   --colour-error-background: #fff4b8;
   color: var(--colour-text);
@@ -26,7 +28,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -83,7 +86,8 @@ h1 {
 }
 
 .logout-button {
-  margin-top: 2rem;
+  align-self: flex-end;
+  margin-top: 3rem;
   padding: 0.65rem 1rem;
   border: 2px solid var(--colour-text);
   border-radius: 4px;
@@ -97,73 +101,6 @@ h1 {
 .logout-button:focus-visible {
   outline: 4px solid var(--colour-focus);
   outline-offset: 2px;
-}
-
-.leave-balance-panel {
-  width: 100%;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--colour-text);
-}
-
-.leave-balance-panel h2 {
-  margin: 0;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 1.25rem;
-}
-
-.loading-state {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-}
-
-.loading-spinner {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex: 0 0 auto;
-  border: 3px solid var(--colour-text);
-  border-right-color: transparent;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-.leave-balance-list {
-  display: grid;
-  gap: 0.75rem;
-  margin: 1rem 0 0;
-}
-
-.leave-balance-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem;
-  border: 2px solid var(--colour-text);
-  font-family: 'Trebuchet MS', sans-serif;
-}
-
-.leave-balance-item dt {
-  font-weight: 700;
-}
-
-.leave-balance-item dd {
-  margin: 0;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .loading-spinner {
-    animation: none;
-  }
 }
 
 .login-panel {
@@ -220,6 +157,290 @@ h1 {
   color: var(--colour-error);
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 0.95rem;
+}
+
+.success-message {
+  margin: 0;
+  padding: 0.75rem;
+  border: 2px solid var(--colour-success);
+  background: var(--colour-success-background);
+  color: var(--colour-success);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.leave-balance-panel,
+.leave-request-panel,
+.leave-requests-panel {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--colour-text);
+}
+
+.leave-balance-panel h2,
+.leave-request-panel h2,
+.leave-requests-panel h2 {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.25rem;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+}
+
+.loading-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  border: 3px solid var(--colour-text);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.leave-balance-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.leave-balance-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem;
+  border: 2px solid var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.leave-balance-item dt {
+  font-weight: 700;
+}
+
+.leave-balance-item dd {
+  margin: 0;
+  text-align: right;
+}
+
+.empty-state {
+  margin: 1rem 0 0;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.leave-request-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leave-request-button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  padding: 0.875rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.leave-request-button span:first-child {
+  font-weight: 700;
+}
+
+.leave-request-button span:last-child {
+  grid-column: 1 / -1;
+}
+
+.leave-request-button:hover {
+  background: var(--colour-page-background);
+}
+
+.leave-request-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.leave-request-dialog {
+  width: min(100% - 2rem, 32rem);
+  padding: 1.5rem;
+  border: 3px solid var(--colour-text);
+  border-radius: 8px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+}
+
+.leave-request-dialog::backdrop {
+  background: rgba(23, 34, 43, 0.55);
+}
+
+.leave-request-dialog h2 {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.25rem;
+}
+
+.leave-request-details {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.leave-request-details div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.leave-request-details dt {
+  font-weight: 700;
+}
+
+.leave-request-details dd {
+  margin: 0;
+  text-align: right;
+}
+
+.dialog-close-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-primary-action);
+  border-radius: 4px;
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dialog-close-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.cancel-request-button {
+  margin-right: 0.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-error);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-error);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel-request-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.cancel-request-button:disabled {
+  border-color: var(--colour-text);
+  color: var(--colour-text);
+  cursor: not-allowed;
+}
+
+.cancellation-confirmation {
+  margin: 1.5rem 0 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid var(--colour-error);
+  background: var(--colour-error-background);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.cancellation-confirmation p {
+  margin: 0 0 0.75rem;
+}
+
+.keep-request-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.keep-request-button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.leave-request-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.field select {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+}
+
+.field select:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.leave-request-form button {
+  justify-self: start;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--colour-primary-action);
+  border-radius: 4px;
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.leave-request-form button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.leave-request-form button:disabled {
+  border-color: var(--colour-text);
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
 }
 
 .login-form button {
