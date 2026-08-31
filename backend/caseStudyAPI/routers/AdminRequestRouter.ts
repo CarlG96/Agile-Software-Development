@@ -16,6 +16,13 @@ export class AdminRequestRouter {
   }
 
   private addRoutes() {
+    this.router.get(
+      "/staff",
+      JwtMiddleware.verifyToken,
+      RoleMiddleware.requireRole("admin"),
+      this.adminRequestController.getStaffWithLeaveAllocations,
+    );
+
     this.router.post(
       "/staff",
       JwtMiddleware.verifyToken,

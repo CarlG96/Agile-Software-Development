@@ -42,8 +42,8 @@ export class UserRepository {
     return this.repository.create(userData);
   }
 
-  async findAll(): Promise<User[]> {
-    return this.repository.find();
+  async findAll(relations: string[] = []): Promise<User[]> {
+    return this.repository.find({ relations });
   }
 
   async exists(id: number): Promise<boolean> {

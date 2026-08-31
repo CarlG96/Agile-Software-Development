@@ -41,7 +41,7 @@ export class Server {
   private initialiseRoutes() {
     const rateLimiter = rateLimit({
       windowMs: 60 * 1000,
-      max: 10,
+      max: 100,
       standardHeaders: true,
       legacyHeaders: false,
       message: "Too many requests from this endpoint, please try again later.",

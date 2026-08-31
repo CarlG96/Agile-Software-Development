@@ -56,6 +56,8 @@ export class LeaveRequestRepository {
     pendingStatus: LeaveRequestStatus,
     staffId?: number,
     managerId?: number,
+    staffName?: string,
+    managerName?: string,
   ): Promise<LeaveRequest[]> {
     const query = this.repository
       .createQueryBuilder("leaveRequest")
@@ -84,6 +86,20 @@ export class LeaveRequestRepository {
 
     if (managerId !== undefined) {
       query.andWhere("manager.id = :managerId", { managerId });
+    }
+
+    if (staffName) {
+      query.andWhere(
+        "(LOWER(user.firstName) LIKE :staffName OR LOWER(user.lastName) LIKE :staffName)",
+        { staffName: `%${staffName.toLowerCase()}%` },
+      );
+    }
+
+    if (managerName) {
+      query.andWhere(
+        "(LOWER(manager.firstName) LIKE :managerName OR LOWER(manager.lastName) LIKE :managerName)",
+        { managerName: `%${managerName.toLowerCase()}%` },
+      );
     }
 
     return query.getMany();
