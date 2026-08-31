@@ -976,3 +976,570 @@ Context: HTTP Non-Success Response
   "params": {},
   "query": {}
 }
+
+2026-08-27T17:46:28.352Z
+{
+  "method": "GET",
+  "url": "/api/staff/me/leave-balance",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-27T17:46:41.860Z
+{
+  "method": "POST",
+  "url": "/api/auth/login",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {
+    "email": "alice.manager@example2.com",
+    "password": "[REDACTED]"
+  },
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:21.860Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:21.955Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.000Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.001Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.172Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.266Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.315Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.316Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.485Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.579Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.626Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.627Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.797Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.892Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.939Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:22.939Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.202Z
+{
+  "method": "GET",
+  "url": "/api/admin/leave-requests/outstanding",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.251Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.253Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.252Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.408Z
+{
+  "method": "GET",
+  "url": "/api/admin/leave-requests/outstanding",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.517Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.566Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.567Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.568Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.827Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.874Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.874Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:23.875Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.140Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 1,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.184Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.185Z
+{
+  "method": "GET",
+  "url": "/api/admin/analytics/leave-usage",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.186Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.453Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.497Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.498Z
+{
+  "method": "GET",
+  "url": "/api/admin/leave-requests/outstanding",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.527Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.762Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.810Z
+{
+  "method": "GET",
+  "url": "/api/admin/leave-requests/outstanding",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.810Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:24.840Z
+{
+  "method": "GET",
+  "url": "/api/role",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:25.073Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:25.119Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:25.381Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}
+
+2026-08-31T13:12:25.427Z
+{
+  "method": "GET",
+  "url": "/api/admin/staff",
+  "statusCode": 429,
+  "durationMs": 0,
+  "response": "Too many requests from this endpoint, please try again later.",
+  "requestBody": {},
+  "params": {},
+  "query": {}
+}

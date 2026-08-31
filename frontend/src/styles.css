@@ -103,6 +103,47 @@ h1 {
   outline-offset: 2px;
 }
 
+.admin-tabs {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.admin-tab-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--colour-text);
+}
+
+.admin-tab {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-tab[aria-selected="true"] {
+  border-color: var(--colour-primary-action);
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+}
+
+.admin-tab:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.admin-tab-panel {
+  min-height: 1rem;
+}
+
 .login-panel {
   width: min(100%, 28rem);
   padding: clamp(2rem, 6vw, 3.5rem);
@@ -173,7 +214,12 @@ h1 {
 .leave-balance-panel,
 .leave-request-panel,
 .leave-requests-panel,
-.outstanding-requests-panel {
+.outstanding-requests-panel,
+.analytics-panel,
+.add-staff-panel,
+.admin-requests-panel,
+.leave-allocation-panel,
+.change-role-panel {
   width: 100%;
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -183,7 +229,12 @@ h1 {
 .leave-balance-panel h2,
 .leave-request-panel h2,
 .leave-requests-panel h2,
-.outstanding-requests-panel h2 {
+.outstanding-requests-panel h2,
+.analytics-panel h2,
+.add-staff-panel h2,
+.admin-requests-panel h2,
+.leave-allocation-panel h2,
+.change-role-panel h2 {
   margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 1.25rem;
@@ -206,6 +257,56 @@ h1 {
   border-right-color: transparent;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+}
+
+.analytics-content {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.analytics-total {
+  margin: 0;
+  padding: 1rem;
+  border: 2px solid var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.analytics-total strong {
+  font-size: 1.5rem;
+}
+
+.analytics-table {
+  width: 100%;
+  border: 2px solid var(--colour-text);
+  border-collapse: collapse;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.analytics-table caption {
+  padding: 0.75rem;
+  background: var(--colour-text);
+  color: var(--colour-inverse-text);
+  font-weight: 700;
+  text-align: left;
+}
+
+.analytics-table th,
+.analytics-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--colour-text);
+  text-align: left;
+}
+
+.analytics-table th {
+  background: var(--colour-page-background);
+}
+
+@media (max-width: 40rem) {
+  .analytics-table th,
+  .analytics-table td {
+    padding: 0.5rem;
+  }
 }
 
 .leave-balance-list {
@@ -491,10 +592,17 @@ h1 {
   outline-offset: 2px;
 }
 
-.leave-request-form {
+.leave-request-form,
+.add-staff-form,
+.change-role-form {
   display: grid;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.current-role-note {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .field select {
@@ -511,7 +619,9 @@ h1 {
   outline-offset: 2px;
 }
 
-.leave-request-form button {
+.leave-request-form button,
+.add-staff-form button,
+.change-role-form button {
   justify-self: start;
   padding: 0.75rem 1rem;
   border: 2px solid var(--colour-primary-action);
@@ -523,12 +633,16 @@ h1 {
   cursor: pointer;
 }
 
-.leave-request-form button:focus-visible {
+.leave-request-form button:focus-visible,
+.add-staff-form button:focus-visible,
+.change-role-form button:focus-visible {
   outline: 4px solid var(--colour-focus);
   outline-offset: 2px;
 }
 
-.leave-request-form button:disabled {
+.leave-request-form button:disabled,
+.add-staff-form button:disabled,
+.change-role-form button:disabled {
   border-color: var(--colour-text);
   background: var(--colour-surface);
   color: var(--colour-text);
@@ -568,4 +682,113 @@ h1 {
   background: var(--colour-surface);
   color: var(--colour-text);
   cursor: not-allowed;
+}
+
+.admin-request-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  padding: 0.875rem;
+  border: 2px solid var(--colour-text);
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.admin-request-item span:first-child {
+  font-weight: 700;
+}
+
+.admin-request-item span:nth-child(3),
+.admin-request-item span:nth-child(4),
+.admin-request-item .approve-request-button,
+.admin-request-item .manager-decision-confirmation {
+  grid-column: 1 / -1;
+}
+
+.request-filter-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.request-filter-form button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-primary-action);
+  border-radius: 4px;
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.request-filter-form button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+.allocation-content,
+.allocation-editor {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.allocation-editor h3 {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem;
+}
+
+.allocation-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7rem auto;
+  align-items: end;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid var(--colour-text);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.allocation-row label {
+  font-weight: 700;
+}
+
+.allocation-row input {
+  min-height: 2.75rem;
+  padding: 0.5rem;
+  border: 2px solid var(--colour-text);
+  border-radius: 4px;
+}
+
+.allocation-row button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--colour-primary-action);
+  border-radius: 4px;
+  background: var(--colour-primary-action);
+  color: var(--colour-inverse-text);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.allocation-row input:focus-visible,
+.allocation-row button:focus-visible {
+  outline: 4px solid var(--colour-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 40rem) {
+  .request-filter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .allocation-row {
+    grid-template-columns: 1fr;
+  }
 }

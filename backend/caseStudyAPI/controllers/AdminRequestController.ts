@@ -114,6 +114,35 @@ export class AdminRequestController {
     });
   };
 
+  // GET staff
+  // Returns the staff directory with leave allocations for administration.
+  public getStaffWithLeaveAllocations = async (
+    req: Request,
+    res: Response,
+  ): Promise<void> => {
+    try {
+      const userRepository = this.userRepositoryFactory.createUserRepository();
+      const leaveBalanceRepository =
+        this.leaveBalanceRepositoryFactory.createLeaveBalanceRepository();
+      const users = await userRepository.findAll(["role"]);
+      const staffWithAllocations = await Promise.all(
+        users.map(async (user) => ({
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          role: { id: user.role.id, name: user.role.name },
+          leaveBalances: await leaveBalanceRepository.findByUser(user),
+        })),
+      );
+
+      res.status(StatusCodes.OK).json(staffWithAllocations);
+    } catch (error) {
+      res
+        .status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ error: error.message });
+    }
+  };
+
   // PATCH staff/:staffId/profile
   // Updates role and/or manager relationship for a staff member.
   public amendStaffProfile = async (
@@ -145,6 +174,14 @@ export class AdminRequestController {
       }
 
       if (roleId) {
+        // Prevent an admin's role from being changed, which could lock out all admins.
+        if (staff.role.name === "admin") {
+          res.status(StatusCodes.FORBIDDEN).json({
+            error: "Cannot change the role of an admin user",
+          });
+          return;
+        }
+
         const role = await roleRepository.findById(roleId);
         if (!role) {
           res.status(StatusCodes.BAD_REQUEST).json({ error: "Invalid roleId" });
@@ -194,6 +231,8 @@ export class AdminRequestController {
       const managerId = req.query.managerId
         ? parseInt(req.query.managerId as string, 10)
         : undefined;
+      const staffName = getOptionalQueryText(req.query.staffName);
+      const managerName = getOptionalQueryText(req.query.managerName);
 
       if (req.query.staffId && Number.isNaN(staffId)) {
         res.status(StatusCodes.BAD_REQUEST).json({ error: "Invalid staffId" });
@@ -226,6 +265,8 @@ export class AdminRequestController {
           pendingStatus,
           staffId,
           managerId,
+          staffName,
+          managerName,
         );
 
       res.status(StatusCodes.OK).json(leaveRequests);
@@ -451,4 +492,13 @@ export class AdminRequestController {
         .json({ error: error.message });
     }
   };
+}
+
+function getOptionalQueryText(value: unknown): string | undefined {
+  if (typeof value !== "string") {
+    return undefined;
+  }
+
+  const text = value.trim();
+  return text || undefined;
 }
