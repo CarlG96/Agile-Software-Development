@@ -2,9 +2,13 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import type { Role } from "./types";
 
-// Redirects unauthenticated users back to the login page, per the security rules for JWT expiry and hard refresh.
+// Redirects unauthenticated users after the refresh-cookie session check has completed.
 export function RequireAuth() {
   const { status } = useAuth();
+
+  if (status === "checking") {
+    return <div role="status">Checking session...</div>;
+  }
 
   if (status === "anonymous") {
     return <Navigate to="/login" replace />;

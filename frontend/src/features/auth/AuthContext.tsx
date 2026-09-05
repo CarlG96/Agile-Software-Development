@@ -2,41 +2,43 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useRef,
   useState,
   type ReactNode,
 } from "react";
-import { login as loginRequest } from "./api";
+import { login as loginRequest, logout as logoutRequest, refreshSession } from "./api";
 import { decodeJwt } from "./jwt";
 import type { AuthUser } from "./types";
 
 interface AuthContextValue {
-  status: "anonymous" | "authenticated";
+  status: "checking" | "anonymous" | "authenticated";
   user: AuthUser | null;
   token: string | null;
   login: (email: string, password: string) => Promise<AuthUser>;
-  logout: () => void;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-// Token is held in memory only: it is lost on a hard refresh and is never renewed after the 8 hour expiry.
+// Access tokens stay in memory; the backend owns hard-refresh restoration through an HTTP-only refresh cookie.
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const [status, setStatus] = useState<AuthContextValue["status"]>("checking");
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<AuthUser | null>(null);
   const logoutTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  const logout = useCallback(() => {
+  const clearSession = useCallback(() => {
     if (logoutTimer.current) {
       clearTimeout(logoutTimer.current);
     }
     setToken(null);
     setUser(null);
+    setStatus("anonymous");
   }, []);
 
-  const login = useCallback(
-    async (email: string, password: string): Promise<AuthUser> => {
-      const { token: newToken } = await loginRequest(email, password);
+  const applyToken = useCallback(
+    (newToken: string): AuthUser => {
       const decoded = decodeJwt(newToken);
       const authenticatedUser: AuthUser = {
         userId: decoded.userId,
@@ -48,17 +50,64 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       setToken(newToken);
       setUser(authenticatedUser);
+      setStatus("authenticated");
 
       const msUntilExpiry = decoded.exp * 1000 - Date.now();
-      logoutTimer.current = setTimeout(logout, Math.max(msUntilExpiry, 0));
+      logoutTimer.current = setTimeout(clearSession, Math.max(msUntilExpiry, 0));
 
       return authenticatedUser;
     },
-    [logout],
+    [clearSession],
+  );
+
+  useEffect(() => {
+    let isActive = true;
+
+    async function restoreSession() {
+      try {
+        const response = await refreshSession();
+        if (!isActive) {
+          return;
+        }
+
+        if (response) {
+          applyToken(response.token);
+          return;
+        }
+      } catch {
+        // If the refresh check fails, treat the user as signed out.
+      }
+
+      if (isActive) {
+        clearSession();
+      }
+    }
+
+    void restoreSession();
+
+    return () => {
+      isActive = false;
+    };
+  }, [applyToken, clearSession]);
+
+  const logout = useCallback(async () => {
+    try {
+      await logoutRequest();
+    } finally {
+      clearSession();
+    }
+  }, [clearSession]);
+
+  const login = useCallback(
+    async (email: string, password: string): Promise<AuthUser> => {
+      const { token: newToken } = await loginRequest(email, password);
+      return applyToken(newToken);
+    },
+    [applyToken],
   );
 
   const value: AuthContextValue = {
-    status: token ? "authenticated" : "anonymous",
+    status,
     user,
     token,
     login,
