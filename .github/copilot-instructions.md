@@ -11,7 +11,7 @@ The three roles are:
 - Manager
 - Admin
 
-For auth, the provider pattern should be used. On a page hard refresh or on the expiry of a JWT the user should be redirected to the login page.
+For auth, the provider pattern should be used. On a page hard refresh, the frontend should attempt to restore the session through the backend-managed HTTP-only refresh cookie before redirecting to the login page. On access token expiry, the user should be redirected to the login page unless a valid refresh-cookie session can restore authentication.
 
 Errors are returned as JSON or text from the API, depending on endpoint.
 
@@ -22,6 +22,8 @@ Errors are returned as JSON or text from the API, depending on endpoint.
 | Method | Endpoint | Description |
 |--------|----------|--------------|
 | POST | /api/auth/login | Accepts email and password credentials and returns a JWT if valid |
+| POST | /api/auth/refresh | Uses the HTTP-only refresh cookie to return a fresh in-memory access JWT if the one-hour session is valid |
+| POST | /api/auth/logout | Clears the HTTP-only refresh cookie |
 
 ### Staff
 
@@ -121,11 +123,11 @@ Use this colour scheme for frontend user interfaces. Do not use colour as the so
 
 # Security Considerations
 
-The backend API for the Leave Booking System authenticates users through a login endpoint. If the credentials are valid, a JWT is returned containing the user ID, role, manager ID and an eight-hour expiry period.
+The backend API for the Leave Booking System authenticates users through a login endpoint. If the credentials are valid, a JWT is returned containing the user ID, role, manager ID and a one-hour expiry period.
 Depending on the role that is returned from valid credentials in the JWT, the user should either be taken to a staff, manager or admin page. These pages should not be accessible to unauthorised individuals.
-After the JWT has expired, any actions taken by the user or any attempts to enter the page should redirect back to the login screen, so that the user must re-enter their credentials to access the page again. The frontend will not implement token refresh.
+After the JWT has expired, any actions taken by the user or any attempts to enter the page should redirect back to the login screen unless the backend refresh endpoint can validate a one-hour HTTP-only refresh-cookie session and return a fresh access JWT.
 HTTPS should be used so that credentials and JWTs cannot be intercepted.
-The token storage should be in-memory only.
+The access token storage should be in-memory only. The refresh token should be stored only in an HTTP-only, SameSite cookie managed by the backend and cleared during logout.
 
 
 # Responsive Design and Screen Resolutions

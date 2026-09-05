@@ -10,10 +10,6 @@ import { LoginPage } from "./LoginPage";
 import { RequireAuth, RequireRole } from "./routeGuards";
 import type { Role } from "./types";
 
-function LoginStub() {
-  return <div>Login page</div>;
-}
-
 function StaffStub() {
   return <div>Staff home</div>;
 }
@@ -59,10 +55,29 @@ async function signInAs(role: Role) {
 }
 
 describe("route guards", () => {
-  it("redirects an unauthenticated user from a protected route to /login", () => {
+  it("redirects an unauthenticated user from a protected route to /login", async () => {
     renderWithRoutes("/staff");
 
-    expect(screen.getByRole("heading", { name: /sign in/i })).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent(/checking session/i);
+    expect(await screen.findByRole("heading", { name: /sign in/i })).toBeInTheDocument();
+  });
+
+  it("restores an authenticated user from the refresh cookie before rendering protected content", async () => {
+    const token = createTestToken({
+      userId: 1,
+      firstName: "Jane",
+      lastName: "Doe",
+      role: "staff",
+    });
+
+    server.use(
+      http.post("/api/auth/refresh", () => HttpResponse.json({ token })),
+    );
+
+    renderWithRoutes("/staff");
+
+    expect(screen.getByRole("status")).toHaveTextContent(/checking session/i);
+    expect(await screen.findByText("Staff home")).toBeInTheDocument();
   });
 
   it("renders protected content for an authenticated user with the required role", async () => {

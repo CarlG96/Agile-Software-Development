@@ -8,6 +8,7 @@ export async function login(email: string, password: string): Promise<LoginRespo
   const response = await fetch(`${API_BASE_URL}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    credentials: "include",
     body: JSON.stringify({ email, password }),
   });
 
@@ -16,6 +17,30 @@ export async function login(email: string, password: string): Promise<LoginRespo
   }
 
   return (await response.json()) as LoginResponse;
+}
+
+export async function refreshSession(): Promise<LoginResponse | null> {
+  const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (response.status === 401) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error(await readErrorMessage(response));
+  }
+
+  return (await response.json()) as LoginResponse;
+}
+
+export async function logout(): Promise<void> {
+  await fetch(`${API_BASE_URL}/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
 }
 
 // The login endpoint currently returns plain text on failure rather than JSON, so both are handled.
